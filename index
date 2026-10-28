@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kirk Lim — Senior Marketing Leader | Brand Strategy & Commercial Growth</title>
+
+  <!-- SEO & OpenGraph Meta Tags -->
+  <meta name="description" content="Personal portfolio of Kirk Lim, a Singapore-based Senior Marketing Leader with 15+ years of experience bridging brand strategy, regional growth (SG, MY, CN), and commercial execution." />
+  <meta property="og:title" content="Kirk Lim — Senior Marketing Leader" />
+  <meta property="og:description" content="15+ years shaping brands, leading regional marketing strategies, and translating creative thinking into measurable commercial outcomes." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS & Google Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- GSAP & Lenis Smooth Scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBg: '#F5F3EE',
+            brandCharcoal: '#181818',
+            brandStone: '#777A7B',
+            brandChampagne: '#B5A48C',
+            brandOffWhite: '#FAF9F6',
+            brandDark: '#151515',
+          },
+          fontFamily: {
+            sans: ['Manrope', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar & Selection Styling */
+    ::-selection {
+      background-color: #B5A48C;
+      color: #181818;
+    }
+    body {
+      background-color: #F5F3EE;
+      color: #181818;
+      overflow-x: hidden;
+    }
+    .custom-cursor {
+      pointer-events: none;
+      transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+    }
+    .editorial-border {
+      border-color: rgba(24, 24, 24, 0.12);
+    }
+    .editorial-border-light {
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-brandCharcoal selection:bg-brandChampagne">
+
+  <!-- Custom Cursor (Desktop Only) -->
+  <div id="cursor" class="fixed top-0 left-0 w-8 h-8 rounded-full border border-brandCharcoal/40 custom-cursor z-50 -translate-x-1/2 -translate-y-1/2 hidden md:block opacity-0"></div>
+
+  <!-- Intro Overlay Animation -->
+  <div id="intro-overlay" class="fixed inset-0 bg-brandCharcoal z-[100] flex items-center justify-center text-brandBg transition-opacity duration-700">
+    <div class="text-center space-y-3 px-4">
+      <span class="text-xs uppercase tracking-[0.3em] text-brandChampagne font-mono block">Executive Portfolio</span>
+      <h2 class="text-3xl md:text-5xl font-serif italic tracking-wide">Kirk Lim</h2>
+      <div class="w-12 h-[1px] bg-brandChampagne mx-auto my-4"></div>
+      <p class="text-xs font-mono text-brandStone uppercase tracking-widest">Singapore • Asia</p>
+    </div>
+  </div>
+
+  <!-- Fixed Navigation -->
+  <header id="header" class="fixed top-0 w-full z-40 transition-colors duration-300 py-6 px-6 md:px-12 border-b border-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="text-lg font-extrabold tracking-tighter uppercase font-sans hover:text-brandChampagne transition-colors">
+        KIRK LIM <span class="text-xs font-normal text-brandStone ml-2 hidden sm:inline-block">/ SINGAPORE</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-10 text-xs tracking-widest uppercase font-semibold text-brandCharcoal/80">
+        <a href="#philosophy" class="hover:text-brandChampagne transition-colors">01 / PHILOSOPHY</a>
+        <a href="#about" class="hover:text-brandChampagne transition-colors">02 / ABOUT</a>
+        <a href="#impact" class="hover:text-brandChampagne transition-colors">03 / IMPACT</a>
+        <a href="#work" class="hover:text-brandChampagne transition-colors">04 / WORK</a>
+        <a href="#expertise" class="hover:text-brandChampagne transition-colors">05 / EXPERTISE</a>
+        <a href="#experience" class="hover:text-brandChampagne transition-colors">06 / JOURNEY</a>
+        <a href="#contact" class="hover:text-brandChampagne transition-colors">07 / CONNECT</a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="menu-btn" aria-label="Toggle Menu" class="md:hidden flex flex-col space-y-1.5 focus:outline-none z-50">
+        <span class="w-6 h-[2px] bg-brandCharcoal transition-transform duration-300" id="line1"></span>
+        <span class="w-6 h-[2px] bg-brandCharcoal transition-opacity duration-300" id="line2"></span>
+        <span class="w-4 h-[2px] bg-brandCharcoal self-end transition-transform duration-300" id="line3"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brandDark text-brandBg z-40 hidden flex-col justify-center px-8 space-y-8">
+    <div class="space-y-6 text-2xl font-serif italic">
+      <a href="#philosophy" class="mobile-nav-link block hover:text-brandChampagne">01 / Philosophy</a>
+      <a href="#about" class="mobile-nav-link block hover:text-brandChampagne">02 / About Kirk</a>
+      <a href="#impact" class="mobile-nav-link block hover:text-brandChampagne">03 / Impact in Numbers</a>
+      <a href="#work" class="mobile-nav-link block hover:text-brandChampagne">04 / Selected Work</a>
+      <a href="#expertise" class="mobile-nav-link block hover:text-brandChampagne">05 / Expertise</a>
+      <a href="#experience" class="mobile-nav-link block hover:text-brandChampagne">06 / Journey</a>
+      <a href="#contact" class="mobile-nav-link block hover:text-brandChampagne">07 / Contact</a>
+    </div>
+    <div class="pt-8 border-t border-slate-800 font-mono text-xs text-brandStone space-y-2">
+      <p>Kirk.lim.k@gmail.com</p>
+      <p>+65 9239 0815</p>
+      <p>Singapore • Regional Marketing Leader</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- 4. HERO SECTION -->
+    <section class="min-h-screen flex flex-col justify-between pt-32 pb-12 px-6 md:px-12 max-w-7xl mx-auto relative">
+      <div>
+        <div class="reveal-hero inline-block px-3 py-1 bg-brandChampagne/20 border border-brandChampagne/40 rounded-full text-[11px] font-mono tracking-widest uppercase mb-8">
+          SINGAPORE-BASED MARKETING LEADER
+        </div>
+
+        <h1 class="reveal-hero text-5xl sm:text-7xl md:text-8xl lg:text-[100px] font-extrabold tracking-tight leading-[0.9] text-brandCharcoal uppercase mb-8">
+          BUILDING BRANDS.<br />
+          <span class="font-serif italic font-normal lowercase text-brandStone">driving</span> GROWTH.<br />
+          CREATING IMPACT.
+        </h1>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end pt-12 border-t editorial-border">
+        <div class="reveal-hero md:col-span-6 space-y-4">
+          <p class="text-lg md:text-xl text-brandCharcoal/80 font-light leading-relaxed">
+            15+ years of shaping brands, leading regional marketing strategies, and translating creative thinking into measurable commercial outcomes.
+          </p>
+          <p class="text-xs font-mono uppercase tracking-widest text-brandStone">
+            BRAND STRATEGY / REGIONAL LEADERSHIP / COMMERCIAL GROWTH
+          </p>
+        </div>
+
+        <div class="reveal-hero md:col-span-6 flex flex-col sm:flex-row gap-4 md:justify-end items-stretch sm:items-center">
+          <a href="#work" class="px-8 py-4 bg-brandCharcoal text-brandBg text-xs font-bold tracking-widest uppercase hover:bg-brandChampagne hover:text-brandCharcoal transition-colors text-center">
+            EXPLORE MY WORK ↓
+          </a>
+          <a href="#contact" class="px-8 py-4 border border-brandCharcoal text-brandCharcoal text-xs font-bold tracking-widest uppercase hover:bg-brandCharcoal hover:text-brandBg transition-colors text-center">
+            CONNECT WITH ME
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-12 flex justify-between items-center text-[10px] font-mono uppercase tracking-widest text-brandStone">
+        <span>SINGAPORE • ASIA</span>
+        <span class="animate-bounce">SCROLL TO EXPLORE ↓</span>
+      </div>
+    </section>
+
+    <!-- 5. PHILOSOPHY SECTION -->
+    <section id="philosophy" class="py-24 md:py-36 px-6 md:px-12 bg-brandOffWhite border-y editorial-border">
+      <div class="max-w-7xl mx-auto">
+        <span class="text-xs font-mono uppercase tracking-widest text-brandChampagne block mb-4">01 / MY PHILOSOPHY</span>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-6">
+            <h2 class="text-3xl md:text-6xl font-extrabold tracking-tight leading-none uppercase text-brandCharcoal">
+              GOOD MARKETING GETS ATTENTION.<br />
+              <span class="font-serif italic font-normal text-brandStone lowercase">great marketing</span> CREATES VALUE.
+            </h2>
+          </div>
+
+          <div class="lg:col-span-6 space-y-6 text-base md:text-lg text-brandCharcoal/80 font-light leading-relaxed">
+            <p>
+              I believe marketing is more than campaigns, impressions, or clicks. It is about understanding human behavior, building meaningful brand equity, and aligning corporate objectives with customer experiences that inspire decision.
+            </p>
+            <p>
+              Throughout my 15+ year career, I have operated at the intersection of brand strategy, spatial experience, media investments, and commercial execution across Singapore, Malaysia, and China. My approach is simple: combine qualitative insight with analytical discipline, empower cross-functional teams, and convert marketing investment into durable business growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ABOUT KIRK -->
+    <section id="about" class="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+      <span class="text-xs font-mono uppercase tracking-widest text-brandChampagne block mb-4">02 / THE PERSON BEHIND THE STRATEGY</span>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Editorial Visual Panel -->
+        <div class="lg:col-span-5 relative">
+          <div class="aspect-[4/5] bg-slate-200 border border-brandCharcoal/10 relative overflow-hidden group shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" alt="Kirk Lim Portrait Placeholder" class="w-full h-full object-cover filter grayscale contrast-125 group-hover:scale-105 transition-transform duration-700" />
+            <div class="absolute inset-0 bg-brandCharcoal/10"></div>
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-brandDark text-brandBg p-6 hidden sm:block max-w-xs border border-brandChampagne/30">
+            <p class="text-xs font-mono uppercase tracking-widest text-brandChampagne">EXECUTIVE PROFILE</p>
+            <p class="text-sm mt-1 font-serif italic">"Connecting spatial design, digital acquisition, and corporate growth."</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-8">
+          <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight uppercase">
+            STRATEGIC THINKING.<br />
+            CREATIVE INSTINCT.<br />
+            COMMERCIAL FOCUS.
+          </h2>
+
+          <p class="text-base md:text-lg text-brandCharcoal/80 font-light leading-relaxed">
+            I am a Singapore-based Senior Marketing Leader with over 15 years of experience spanning integrated marketing, regional brand strategy, digital growth, and major property launches.
+          </p>
+
+          <p class="text-base md:text-lg text-brandCharcoal/80 font-light leading-relaxed">
+            At Wing Tai Holdings Limited, I directed integrated marketing initiatives and exercised regional oversight across Singapore, Malaysia, and China. My work unified commercial strategies, multidisciplinary agency networks, digital media budgets up to S$500,000 per launch, and spatial showflat experiences to drive multi-million dollar sell-through.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t editorial-border font-mono text-xs">
+            <div>
+              <span class="text-brandStone block uppercase">EXPERIENCE</span>
+              <span class="text-sm font-bold text-brandCharcoal">15+ YEARS</span>
+            </div>
+            <div>
+              <span class="text-brandStone block uppercase">MARKETS</span>
+              <span class="text-sm font-bold text-brandCharcoal">SG / MY / CN</span>
+            </div>
+            <div>
+              <span class="text-brandStone block uppercase">ACADEMIC</span>
+              <span class="text-sm font-bold text-brandCharcoal">SMU IPMDE (In Progress)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. IMPACT SECTION (NUMBERS) -->
+    <section id="impact" class="py-24 md:py-36 px-6 md:px-12 bg-brandDark text-brandBg">
+      <div class="max-w-7xl mx-auto">
+        <span class="text-xs font-mono uppercase tracking-widest text-brandChampagne block mb-4">03 / IMPACT IN NUMBERS</span>
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight uppercase mb-16">
+          RESULTS THAT<br /><span class="font-serif italic font-normal text-brandChampagne lowercase">speak for</span> THEMSELVES.
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 border-t editorial-border-light pt-12">
+          <!-- Metric 1 -->
+          <div class="space-y-3">
+            <span class="counter text-5xl md:text-7xl font-extrabold tracking-tight text-brandChampagne" data-target="3">0</span><span class="text-4xl font-extrabold text-brandChampagne">×</span>
+            <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400">WEBSITE TRAFFIC GROWTH</h3>
+            <p class="text-sm text-slate-300 font-light leading-relaxed">Achieved during an 8-week omnichannel lead optimization campaign for an active development.</p>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="space-y-3">
+            <span class="counter text-5xl md:text-7xl font-extrabold tracking-tight text-brandChampagne" data-target="5">0</span><span class="text-4xl font-extrabold text-brandChampagne">×</span>
+            <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400">LEAD ACQUISITION GROWTH</h3>
+            <p class="text-sm text-slate-300 font-light leading-relaxed">Delivered through targeted digital acquisition and conversion funnel optimization.</p>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="space-y-3">
+            <span class="text-5xl md:text-7xl font-extrabold tracking-tight text-brandChampagne">S$500K</span>
+            <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400">MEDIA BUDGET / LAUNCH</h3>
+            <p class="text-sm text-slate-300 font-light leading-relaxed">Managed digital media investments of up to S$500,000 for major flagship property launches.</p>
+          </div>
+
+          <!-- Metric 4 -->
+          <div class="space-y-3">
+            <span class="text-5xl md:text-7xl font-extrabold tracking-tight text-brandChampagne">S$50M</span>
+            <h3 class="text-xs font-mono uppercase tracking-widest text-slate-400">CAMPAIGN PROPERTY SALES</h3>
+            <p class="text-sm text-slate-300 font-light leading-relaxed">Led integrated marketing activities during a major campaign window achieving ~S$50M in sales.</p>
+          </div>
+        </div>
+
+        <div class="mt-16 p-8 bg-slate-900 border border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p class="text-sm md:text-base font-light text-slate-300">
+            <strong class="text-white font-semibold">Additional Benchmark:</strong> Supported flagship new-project residential launches achieving up to <span class="text-brandChampagne font-bold">70% unit sell-through</span> within launch windows.
+          </p>
+          <span class="px-4 py-2 border border-brandChampagne text-brandChampagne text-xs font-mono uppercase tracking-widest whitespace-nowrap">VERIFIED METRICS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SELECTED WORK -->
+    <section id="work" class="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-brandChampagne block mb-4">04 / SELECTED WORK</span>
+          <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight uppercase">
+            IDEAS BROUGHT<br /><span class="font-serif italic font-normal text-brandStone lowercase">to</span> LIFE.
+          </h2>
+        </div>
+        <p class="text-xs font-mono text-brandStone uppercase tracking-widest mt-4 md:mt-0">CLICK CASE STUDY TO VIEW DETAILED ANALYSIS</p>
+      </div>
+
+      <div class="space-y-24">
+        <!-- Project 01 -->
+        <div class="group border-t editorial-border pt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 overflow-hidden bg-slate-200 aspect-[16/10] relative">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop" alt="Integrated Real Estate Launch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" />
+          </div>
+          <div class="lg:col-span-5 space-y-6">
+            <div class="flex items-center space-x-3 text-xs font-mono text-brandChampagne">
+              <span>01 / CASE STUDY</span>
+              <span>•</span>
+              <span>WING TAI HOLDINGS</span>
+            </div>
+            <h3 class="text-2xl md:text-4xl font-bold uppercase tracking-tight">Integrated Residential Launch Marketing</h3>
+            <p class="text-sm md:text-base text-brandCharcoal/80 font-light">
+              Directed integrated go-to-market strategies for flagship property launches, combining high-end showflat customer experiences with digital media strategy.
+            </p>
+            <div class="space-y-2 font-mono text-xs text-brandStone">
+              <p><strong class="text-brandCharcoal">OUTCOME:</strong> Supported launches reaching up to 70% sell-through rate within launch window.</p>
+              <p><strong class="text-brandCharcoal">ROLE:</strong> Marketing Strategy, Creative Direction, Agency Leadership, Budget Control.</p>
+            </div>
+            <button onclick="openModal('modal-1')" class="inline-block pt-4 text-xs font-mono font-bold tracking-widest uppercase text-brandCharcoal hover:text-brandChampagne border-b border-brandCharcoal">
+              VIEW DETAILED CASE STUDY →
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 02 -->
+        <div class="group border-t editorial-border pt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 overflow-hidden bg-slate-200 aspect-[16/10] relative lg:order-2">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="Digital Demand Generation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" />
+          </div>
+          <div class="lg:col-span-5 space-y-6 lg:order-1">
+            <div class="flex items-center space-x-3 text-xs font-mono text-brandChampagne">
+              <span>02 / CASE STUDY</span>
+              <span>•</span>
+              <span>DEMAND GENERATION</span>
+            </div>
+            <h3 class="text-2xl md:text-4xl font-bold uppercase tracking-tight">Digital Lead Acquisition Optimization</h3>
+            <p class="text-sm md:text-base text-brandCharcoal/80 font-light">
+              Executed an intensive 8-week performance media optimization campaign to re-energize lead flow for an existing high-value development.
+            </p>
+            <div class="space-y-2 font-mono text-xs text-brandStone">
+              <p><strong class="text-brandCharcoal">OUTCOME:</strong> 3x Website Traffic & 5x Lead Acquisition Growth.</p>
+              <p><strong class="text-brandCharcoal">ROLE:</strong> Omnichannel Allocation, Conversion UX, Performance Reporting.</p>
+            </div>
+            <button onclick="openModal('modal-2')" class="inline-block pt-4 text-xs font-mono font-bold tracking-widest uppercase text-brandCharcoal hover:text-brandChampagne border-b border-brandCharcoal">
+              VIEW DETAILED CASE STUDY →
+            </button>
+          </div>
+        </div>
+
+        <!-- Project 03 -->
+        <div class="group border-t editorial-border pt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 overflow-hidden bg-slate-200 aspect-[16/10] relative">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" alt="Regional Marketing Governance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0" />
+          </div>
+          <div class="lg:col-span-5 space-y-6">
+            <div class="flex items-center space-x-3 text-xs font-mono text-brandChampagne">
+              <span>03 / CASE STUDY</span>
+              <span>•</span>
+              <span>REGIONAL GOVERNANCE</span>
+            </div>
+            <h3 class="text-2xl md:text-4xl font-bold uppercase tracking-tight">Cross-Border Strategy (SG / MY / CN)</h3>
+            <p class="text-sm md:text-base text-brandCharcoal/80 font-light">
+              Headquarters oversight of regional marketing governance, campaign framework alignment, and agency performance monitoring across three key markets.
+            </p>
+            <div class="space-y-2 font-mono text-xs text-brandStone">
+              <p><strong class="text-brandCharcoal">OUTCOME:</strong> Standardized KPI frameworks & localized campaign delivery.</p>
+              <p><strong class="text-brandCharcoal">ROLE:</strong> HQ Regional Oversight, Budget Approvals, Stakeholder Alignment.</p>
+            </div>
+            <button onclick="openModal('modal-3')" class="inline-block pt-4 text-xs font-mono font-bold tracking-widest uppercase text-brandCharcoal hover:text-brandChampagne border-b border-brandCharcoal">
+              VIEW DETAILED CASE STUDY →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. EXPERTISE SECTION (ACCORDION) -->
+    <section id="expertise" class="py-24 md:py-36 px-6 md:px-12 bg-brandOffWhite border-y editorial-border">
+      <div class="max-w-7xl mx-auto">
+        <span class="text-xs font-mono uppercase tracking-widest text-brandChampagne block mb-4">05 / WHAT I BRING</span>
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight uppercase mb-16">
+          THE ART OF STRATEGY.<br /><span class="font-serif italic font-normal text-brandStone lowercase">the science of</span> GROWTH.
+        </h2>
+
+        <div class="space-y-4">
+          <!-- Item 1 -->
+          <div class="border-b editorial-border pb-6">
+            <button onclick="toggleAccordion('acc-1')" class="w-full flex justify-between items-center text-left py-4 focus:outline-none group">
+              <span class="text-lg md:text-2xl font-bold uppercase group-hover:text-brandChampagne transition-colors">01 — MARKETING STRATEGY & REGIONAL LEADERSHIP</span>
+              <span id="acc-icon-1" class="text-2xl font-mono text-brandStone">+</span>
+            </button>
+            <div id="acc-1" class="hidden pt-4 text-sm md:text-base font-light text-brandCharcoal/80 space-y-3">
+              <p>Integrated marketing planning, brand strategy alignment, commercial launch execution, and regional marketing governance across Singapore, Malaysia, and China. Expert at managing multidisciplinary internal stakeholders and executive reporting.</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="border-b editorial-border pb-6">
+            <button onclick="toggleAccordion('acc-2')" class="w-full flex justify-between items-center text-left py-4 focus:outline-none group">
+              <span class="text-lg md:text-2xl font-bold uppercase group-hover:text-brandChampagne transition-colors">02 — BRAND BUILDING & SPATIAL EXPERIENCE</span>
+              <span id="acc-icon-2" class="text-2xl font-mono text-brandStone">+</span>
+            </button>
+            <div id="acc-2" class="hidden pt-4 text-sm md:text-base font-light text-brandCharcoal/80 space-y-3">
+              <p>Positioning luxury and high-value physical assets, guiding creative agency output, and collaborating directly with interior designers to align showflat spatial customer journeys with corporate brand identity.</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="border-b editorial-border pb-6">
+            <button onclick="toggleAccordion('acc-3')" class="w-full flex justify-between items-center text-left py-4 focus:outline-none group">
+              <span class="text-lg md:text-2xl font-bold uppercase group-hover:text-brandChampagne transition-colors">03 — GO-TO-MARKET & PRODUCT LAUNCHES</span>
+              <span id="acc-icon-3" class="text-2xl font-mono text-brandStone">+</span>
+            </button>
+            <div id="acc-3" class="hidden pt-4 text-sm md:text-base font-light text-brandCharcoal/80 space-y-3">
+              <p>End-to-end launch orchestration, timeline management, real estate agency alignment (ERA, PropNex, Huttons, OrangeTee), and cross-channel marketing collateral deployment.</p>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="border-b editorial-border pb-6">
+            <button onclick="toggleAccordion('acc-4')" class="w-full flex justify-between items-center text-left py-4 focus:outline-none group">
+              <span class="text-lg md:text-2xl font-bold uppercase group-hover:text-brandChampagne transition-colors">04 — PERFORMANCE MEDIA & DEMAND ACQUISITION</span>
+              <span id="acc-icon-4" class="text-2xl font-mono text-brandStone">+</span>
+            </button>
+            <div id="acc-4" class="hidden pt-4 text-sm md:text-base font-light text-brandCharcoal/80 space-y-3">
+              <p>Management of digital launch budgets up to S$500,000. Optimizing paid search, social advertising, programmatic media, and customer lead acquisition funnels tied to measurable appointments and sales.</p>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="border-b editorial-border pb-6">
+            <button onclick="toggleAccordion('acc-5')" class="w-full flex justify-between items-center text-left py-4 focus:outline-none group">
+              <span class="text-lg md:text-2xl font-bold uppercase group-hover:text-brandChampagne transition-colors">05 — AGENCY NETWORK & VENDOR GOVERNANCE</span>
+              <span id="acc-icon-5" class="text-2xl font-mono text-brandStone">+</span>
+            </button>
+            <div id="acc-5" class="hidden pt-4 text-sm md:text-base font-light text-brandCharcoal/80 space-y-3">
+              <p>Directing creative agencies, 3D visualization studios, digital agencies, event production partners, and media buying networks. Ensuring on-time, on-budget delivery with zero brand dilution.</p>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="border-b editorial-border pb-6">
+            <button onclick="toggleAccordion('acc-6')" class="w-full flex justify-between items-center text-left py-4 focus:outline-none group">
+              <span class="text-lg md:text-2xl font-bold uppercase group-hover:text-brandChampagne transition-colors">06 — DIGITAL ECONOMY & AI EMPOWERMENT</span>
+              <span id="acc-icon-6" class="text-2xl font-mono text-brandStone">+</span>
+            </button>
+            <div id="acc-6" class="hidden pt-4 text-sm md:text-base font-light text-brandCharcoal/80 space-y-3">
+              <p>Active pursue of the Industry Practice Master of Digital Economy at SMU. Exploring generative AI workflows, agentic automation, customer data platforms, and modern martech stack implementations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. EXPERIENCE SECTION (TIMELINE) -->
+    <section id="experience" class="py-24 md:py-36 px-6 md:px-12 max-w-7xl mx-auto">
+      <span class="text-xs font-mono uppercase tracking-widest text-brandChampagne block mb-4">06 / PROFESSIONAL JOURNEY</span>
+      <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight uppercase mb-16">
+        EXPERIENCE THAT<br /><span class="font-serif italic font-normal text-brandStone lowercase">shapes</span> PERSPECTIVE.
+      </h2>
+
+      <div class="relative border-l border-brandCharcoal/20 ml-4 md:ml-32 space-y-16 pl-8 md:pl-12">
+        <!-- Role 1 -->
+        <div class="relative group">
+          <div class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-brandCharcoal border-4 border-brandBg"></div>
+          <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest">2025 — PRESENT</span>
+          <h3 class="text-xl md:text-2xl font-bold text-brandCharcoal mt-1">PLANNED CAREER BREAK</h3>
+          <p class="text-xs font-mono text-brandStone uppercase">International Travel & Personal Development</p>
+          <p class="text-sm md:text-base text-brandCharcoal/80 font-light mt-3 max-w-2xl leading-relaxed">
+            Undertook an intentional career break following more than a decade in corporate marketing leadership to pursue international travel and cultural perspective. Gained renewed clarity and executive stamina, committed to driving next-stage marketing leadership.
+          </p>
+        </div>
+
+        <!-- Role 2 -->
+        <div class="relative group">
+          <div class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-brandCharcoal border-4 border-brandBg"></div>
+          <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest">2012 — 2025</span>
+          <h3 class="text-xl md:text-2xl font-bold text-brandCharcoal mt-1">WING TAI HOLDINGS LIMITED</h3>
+          <p class="text-xs font-mono text-brandStone uppercase">Marketing Manager / Digital Marketing Lead</p>
+          <p class="text-sm md:text-base text-brandCharcoal/80 font-light mt-3 max-w-2xl leading-relaxed">
+            Directed integrated marketing strategies, regional marketing governance (Singapore, Malaysia, China), digital media investments up to S$500k per launch, and multidisciplinary agency networks for premier residential developments.
+          </p>
+        </div>
+
+        <!-- Role 3 -->
+        <div class="relative group">
+          <div class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-brandCharcoal border-4 border-brandBg"></div>
+          <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest">2010 — 2012</span>
+          <h3 class="text-xl md:text-2xl font-bold text-brandCharcoal mt-1">AVANTUS TRAINING PTE LTD</h3>
+          <p class="text-xs font-mono text-brandStone uppercase">Marketing Senior Executive / Digital Marketing Lead</p>
+          <p class="text-sm md:text-base text-brandCharcoal/80 font-light mt-3 max-w-2xl leading-relaxed">
+            Managed integrated campaigns across digital, content, print, and event channels to drive customer acquisition, brand awareness, and product course launches.
+          </p>
+        </div>
+
+        <!-- Role 4 -->
+        <div class="relative group">
+          <div class="absolute -left-[37px] md:-left-[53px] top-1.5 w-4 h-4 rounded-full bg-brandCharcoal border-4 border-brandBg"></div>
+          <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest">2009 — 2010</span>
+          <h3 class="text-xl md:text-2xl font-bold text-brandCharcoal mt-1">CENTRAL PROVIDENT FUND (CPF) BOARD</h3>
+          <p class="text-xs font-mono text-brandStone uppercase">Operations Officer</p>
+          <p class="text-sm md:text-base text-brandCharcoal/80 font-light mt-3 max-w-2xl leading-relaxed">
+            Supported transaction processing, account administration, and regulatory compliance involving CPF contributions and housing/investment schemes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. EDUCATION & CONTINUED LEARNING -->
+    <section class="py-24 md:py-36 px-6 md:px-12 bg-brandOffWhite border-t editorial-border">
+      <div class="max-w-7xl mx-auto">
+        <span class="text-xs font-mono uppercase tracking-widest text-brandChampagne block mb-4">07 / ALWAYS EVOLVING</span>
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight uppercase mb-16">
+          CURIOSITY IS A<br /><span class="font-serif italic font-normal text-brandStone lowercase">competitive</span> ADVANTAGE.
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- Degree 1 -->
+          <div class="p-8 bg-white border editorial-border space-y-4">
+            <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest block">IN PROGRESS (EXPECTED 2027)</span>
+            <h3 class="text-xl md:text-2xl font-bold">Singapore Management University</h3>
+            <p class="text-sm font-mono text-brandStone">Industry Practice Master of Digital Economy (IPMDE)</p>
+            <p class="text-sm text-brandCharcoal/80 font-light leading-relaxed">
+              Focusing on digital transformation models, platform economics, AI integration, and emerging marketing technologies.
+            </p>
+          </div>
+
+          <!-- Degree 2 -->
+          <div class="p-8 bg-white border editorial-border space-y-4">
+            <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest block">GRADUATED 2012</span>
+            <h3 class="text-xl md:text-2xl font-bold">RMIT University</h3>
+            <p class="text-sm font-mono text-brandStone">Bachelor of Business (Marketing)</p>
+            <p class="text-sm text-brandCharcoal/80 font-light leading-relaxed">
+              Foundational grounding in market research, buyer behavior, corporate branding, and promotional communications strategy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. CONTACT SECTION -->
+    <section id="contact" class="py-24 md:py-36 px-6 md:px-12 bg-brandDark text-brandBg">
+      <div class="max-w-7xl mx-auto text-center md:text-left space-y-12">
+        <span class="text-xs font-mono uppercase tracking-widest text-brandChampagne block">08 / LET'S CONNECT</span>
+        
+        <h2 class="text-5xl sm:text-7xl md:text-9xl font-extrabold tracking-tight uppercase leading-none">
+          LET'S CREATE<br />
+          <span class="font-serif italic font-normal text-brandChampagne lowercase">what's</span> NEXT.
+        </h2>
+
+        <p class="text-lg md:text-2xl font-light text-slate-300 max-w-2xl">
+          I am currently open to executive marketing leadership opportunities, regional director roles, and strategic advisory.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6 justify-start items-center pt-8 border-t editorial-border-light">
+          <a href="mailto:Kirk.lim.k@gmail.com" class="w-full sm:w-auto px-10 py-5 bg-brandChampagne text-brandDark text-xs font-extrabold tracking-widest uppercase hover:bg-white transition-colors text-center">
+            START A CONVERSATION →
+          </a>
+          <a href="https://linkedin.com/in/kirklimk" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 border border-slate-700 text-white text-xs font-extrabold tracking-widest uppercase hover:bg-slate-800 transition-colors text-center">
+            CONNECT ON LINKEDIN ↗
+          </a>
+          <a href="https://drive.google.com/open?id=1kfme3yf0zwLYLQ6N9HQefmnJEj_9p50L" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-10 py-5 border border-slate-700 text-slate-300 text-xs font-extrabold tracking-widest uppercase hover:text-white transition-colors text-center">
+            DOWNLOAD RESUME (PDF)
+          </a>
+        </div>
+
+        <div class="pt-24 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-slate-500 uppercase tracking-widest border-t border-slate-900 gap-4">
+          <span>KIRK LIM • SENIOR MARKETING LEADER</span>
+          <span>SINGAPORE • ASIA</span>
+          <span>© 2026 ALL RIGHTS RESERVED</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CASE STUDY MODALS -->
+  <!-- Modal 1 -->
+  <div id="modal-1" class="fixed inset-0 bg-brandDark/90 backdrop-blur z-50 hidden overflow-y-auto p-6 md:p-12">
+    <div class="max-w-4xl mx-auto bg-brandBg text-brandCharcoal p-8 md:p-16 border border-brandChampagne/40 relative space-y-8">
+      <button onclick="closeModal('modal-1')" class="absolute top-6 right-6 font-mono text-xs uppercase text-brandStone hover:text-brandCharcoal">[ CLOSE X ]</button>
+      <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest block">CASE STUDY 01 — WING TAI HOLDINGS</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold uppercase">Integrated Property Launch Marketing</h2>
+      <div class="space-y-4 text-sm md:text-base font-light text-brandCharcoal/80 leading-relaxed">
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase">THE CONTEXT & CHALLENGE</h4>
+        <p>Launching major residential property developments in Singapore requires coordinating spatial customer touchpoints (showflats), multi-million dollar sales launch windows, and diverse digital/traditional channels under strict regulatory guidelines.</p>
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase pt-4">THE STRATEGY & EXECUTION</h4>
+        <p>Managed up to S$500,000 in digital media budgets per launch. Led agency networks (creative, media, 3D visualization) and collaborated directly with interior designers to ensure physical showflat presentation mirrored digital brand messaging.</p>
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase pt-4">THE OUTCOME</h4>
+        <p>Supported major new residential developments reaching up to 70% unit sell-through within initial launch windows, aligning marketing spend directly with commercial sales volume.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div id="modal-2" class="fixed inset-0 bg-brandDark/90 backdrop-blur z-50 hidden overflow-y-auto p-6 md:p-12">
+    <div class="max-w-4xl mx-auto bg-brandBg text-brandCharcoal p-8 md:p-16 border border-brandChampagne/40 relative space-y-8">
+      <button onclick="closeModal('modal-2')" class="absolute top-6 right-6 font-mono text-xs uppercase text-brandStone hover:text-brandCharcoal">[ CLOSE X ]</button>
+      <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest block">CASE STUDY 02 — DEMAND GENERATION</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold uppercase">Digital Lead Acquisition Optimization</h2>
+      <div class="space-y-4 text-sm md:text-base font-light text-brandCharcoal/80 leading-relaxed">
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase">THE CONTEXT & CHALLENGE</h4>
+        <p>An already-launched residential development required renewed digital traffic and qualified buyer enquiries to maintain sales momentum following initial launch events.</p>
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase pt-4">THE STRATEGY & EXECUTION</h4>
+        <p>Designed and deployed an 8-week omnichannel media optimization campaign across paid search, targeted programmatic channels, and social media, streamlining digital landing page UX to convert traffic into appointment requests.</p>
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase pt-4">THE OUTCOME</h4>
+        <p>Delivered 3x growth in overall website traffic and 5x growth in qualified lead acquisition, driving direct appointments with high-intent buyers.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3 -->
+  <div id="modal-3" class="fixed inset-0 bg-brandDark/90 backdrop-blur z-50 hidden overflow-y-auto p-6 md:p-12">
+    <div class="max-w-4xl mx-auto bg-brandBg text-brandCharcoal p-8 md:p-16 border border-brandChampagne/40 relative space-y-8">
+      <button onclick="closeModal('modal-3')" class="absolute top-6 right-6 font-mono text-xs uppercase text-brandStone hover:text-brandCharcoal">[ CLOSE X ]</button>
+      <span class="text-xs font-mono text-brandChampagne uppercase tracking-widest block">CASE STUDY 03 — REGIONAL GOVERNANCE</span>
+      <h2 class="text-3xl md:text-5xl font-extrabold uppercase">Cross-Border Strategy (SG / MY / CN)</h2>
+      <div class="space-y-4 text-sm md:text-base font-light text-brandCharcoal/80 leading-relaxed">
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase">THE CONTEXT & CHALLENGE</h4>
+        <p>Ensuring consistency across diverse markets (Singapore, Malaysia, China) while providing country teams with local execution flexibility.</p>
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase pt-4">THE STRATEGY & EXECUTION</h4>
+        <p>Exercised HQ marketing governance, established standardized campaign frameworks, approved budgets, and conducted periodic agency performance reviews.</p>
+        <h4 class="font-mono text-xs text-brandCharcoal font-bold uppercase pt-4">THE OUTCOME</h4>
+        <p>Maintained brand alignment and accountability across international markets while supporting regional business units in meeting annual commercial goals.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // Smooth Scroll setup via Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // GSAP Intro & Scroll Trigger Animations
+    window.addEventListener('load', () => {
+      // Intro Overlay Fade Out
+      setTimeout(() => {
+        const overlay = document.getElementById('intro-overlay');
+        overlay.classList.add('opacity-0');
+        setTimeout(() => overlay.style.display = 'none', 700);
+      }, 800);
+
+      // Hero Text Reveal
+      gsap.from('.reveal-hero', {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out',
+        delay: 1.2
+      });
+
+      // Animated Metric Counters
+      gsap.utils.toArray('.counter').forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        gsap.to(counter, {
+          innerText: target,
+          duration: 2,
+          snap: { innerText: 1 },
+          scrollTrigger: {
+            trigger: counter,
+            start: 'top 85%'
+          }
+        });
+      });
+    });
+
+    // Custom Cursor tracking (Desktop)
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      cursor.style.opacity = '1';
+    });
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // Accordion Toggle Logic
+    function toggleAccordion(id) {
+      const content = document.getElementById(id);
+      const icon = document.getElementById('acc-icon-' + id.split('-')[1]);
+      
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.innerText = '—';
+      } else {
+        content.classList.add('hidden');
+        icon.innerText = '+';
+      }
+    }
+
+    // Modal Control Logic
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

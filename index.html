@@ -20,7 +20,7 @@
   <!-- GSAP & Lenis Smooth Scroll -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
 
   <script>
     tailwind.config = {
@@ -64,6 +64,17 @@
     .editorial-border-light {
       border-color: rgba(255, 255, 255, 0.12);
     }
+    html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  background-color: #F5F3EE;
+  color: #181818;
+  overflow-x: hidden;
+  /* Hardware acceleration for crisp rendering */
+  transform: translateZ(0);
+}
   </style>
 </head>
 <body class="font-sans antialiased text-brandCharcoal selection:bg-brandChampagne">
@@ -632,63 +643,54 @@
 
   <!-- SCRIPT LOGIC -->
   <script>
-    // Smooth Scroll setup via Lenis
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // GSAP Intro & Scroll Trigger Animations
-    window.addEventListener('load', () => {
-      // Intro Overlay Fade Out
-      setTimeout(() => {
-        const overlay = document.getElementById('intro-overlay');
+  // Fast GSAP animations without heavy scroll listeners
+  window.addEventListener('load', () => {
+    // 1. Intro Overlay Fade Out
+    setTimeout(() => {
+      const overlay = document.getElementById('intro-overlay');
+      if (overlay) {
         overlay.classList.add('opacity-0');
-        setTimeout(() => overlay.style.display = 'none', 700);
-      }, 800);
+        setTimeout(() => overlay.style.display = 'none', 500);
+      }
+    }, 400);
 
-      // Hero Text Reveal
-      gsap.from('.reveal-hero', {
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: 'power3.out',
-        delay: 1.2
-      });
+    // 2. Hero Text Reveal
+    gsap.from('.reveal-hero', {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: 'power2.out',
+      delay: 0.5
+    });
 
-      // Animated Metric Counters
-      gsap.utils.toArray('.counter').forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        gsap.to(counter, {
-          innerText: target,
-          duration: 2,
-          snap: { innerText: 1 },
-          scrollTrigger: {
-            trigger: counter,
-            start: 'top 85%'
+    // 3. Metric Counter Animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.getAttribute('data-target');
+          if (target && counter.innerText === "0") {
+            gsap.to(counter, {
+              innerText: target,
+              duration: 1.5,
+              snap: { innerText: 1 },
+              ease: 'power1.out'
+            });
           }
-        });
+        }
       });
-    });
+    }, { threshold: 0.5 });
 
-    // Custom Cursor tracking (Desktop)
-    const cursor = document.getElementById('cursor');
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-      cursor.style.opacity = '1';
-    });
+    document.querySelectorAll('.counter').forEach(el => observer.observe(el));
+  });
 
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  // Mobile Menu Toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+  if (menuBtn && mobileMenu) {
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
       mobileMenu.classList.toggle('flex');
@@ -700,28 +702,31 @@
         mobileMenu.classList.remove('flex');
       });
     });
+  }
 
-    // Accordion Toggle Logic
-    function toggleAccordion(id) {
-      const content = document.getElementById(id);
-      const icon = document.getElementById('acc-icon-' + id.split('-')[1]);
-      
-      if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-        icon.innerText = '—';
-      } else {
-        content.classList.add('hidden');
-        icon.innerText = '+';
-      }
+  // Accordion Toggle Logic
+  function toggleAccordion(id) {
+    const content = document.getElementById(id);
+    const icon = document.getElementById('acc-icon-' + id.split('-')[1]);
+    
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      if (icon) icon.innerText = '—';
+    } else {
+      content.classList.add('hidden');
+      if (icon) icon.innerText = '+';
     }
+  }
 
-    // Modal Control Logic
-    function openModal(id) {
-      document.getElementById(id).classList.remove('hidden');
-    }
-    function closeModal(id) {
-      document.getElementById(id).classList.add('hidden');
-    }
-  </script>
+  // Modal Control Logic
+  function openModal(id) {
+    const targetModal = document.getElementById(id);
+    if (targetModal) targetModal.classList.remove('hidden');
+  }
+  function closeModal(id) {
+    const targetModal = document.getElementById(id);
+    if (targetModal) targetModal.classList.add('hidden');
+  }
+</script>
 </body>
 </html>
